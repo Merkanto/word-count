@@ -48,6 +48,7 @@ public class WordCountApp {
         config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         config.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         config.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+        config.put(StreamsConfig.STATE_DIR_CONFIG, "wordcount-application" + Long.valueOf(ProcessHandle.current().pid()).toString());
 
         WordCountApp wordCountApp = new WordCountApp();
 
